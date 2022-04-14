@@ -67,29 +67,29 @@ build CMakeFiles/ContactBook.dir/Contact_Book.cpp.obj: CXX_COMPILER__ContactBook
   OBJECT_DIR = CMakeFiles\ContactBook.dir
   OBJECT_FILE_DIR = CMakeFiles\ContactBook.dir
 
-build CMakeFiles/ContactBook.dir/Display.cpp.obj: CXX_COMPILER__ContactBook_Debug C$:/Users/Barso/CLionProjects/ContactBook/Display.cpp || cmake_object_order_depends_target_ContactBook
-  DEP_FILE = CMakeFiles\ContactBook.dir\Display.cpp.obj.d
+build CMakeFiles/ContactBook.dir/contact_utils/Display.cpp.obj: CXX_COMPILER__ContactBook_Debug C$:/Users/Barso/CLionProjects/ContactBook/contact_utils/Display.cpp || cmake_object_order_depends_target_ContactBook
+  DEP_FILE = CMakeFiles\ContactBook.dir\contact_utils\Display.cpp.obj.d
   FLAGS = -g -std=gnu++14
   OBJECT_DIR = CMakeFiles\ContactBook.dir
-  OBJECT_FILE_DIR = CMakeFiles\ContactBook.dir
+  OBJECT_FILE_DIR = CMakeFiles\ContactBook.dir\contact_utils
 
-build CMakeFiles/ContactBook.dir/Search.cpp.obj: CXX_COMPILER__ContactBook_Debug C$:/Users/Barso/CLionProjects/ContactBook/Search.cpp || cmake_object_order_depends_target_ContactBook
-  DEP_FILE = CMakeFiles\ContactBook.dir\Search.cpp.obj.d
+build CMakeFiles/ContactBook.dir/contact_utils/Search.cpp.obj: CXX_COMPILER__ContactBook_Debug C$:/Users/Barso/CLionProjects/ContactBook/contact_utils/Search.cpp || cmake_object_order_depends_target_ContactBook
+  DEP_FILE = CMakeFiles\ContactBook.dir\contact_utils\Search.cpp.obj.d
   FLAGS = -g -std=gnu++14
   OBJECT_DIR = CMakeFiles\ContactBook.dir
-  OBJECT_FILE_DIR = CMakeFiles\ContactBook.dir
+  OBJECT_FILE_DIR = CMakeFiles\ContactBook.dir\contact_utils
 
-build CMakeFiles/ContactBook.dir/Delete.cpp.obj: CXX_COMPILER__ContactBook_Debug C$:/Users/Barso/CLionProjects/ContactBook/Delete.cpp || cmake_object_order_depends_target_ContactBook
-  DEP_FILE = CMakeFiles\ContactBook.dir\Delete.cpp.obj.d
+build CMakeFiles/ContactBook.dir/contact_utils/Delete.cpp.obj: CXX_COMPILER__ContactBook_Debug C$:/Users/Barso/CLionProjects/ContactBook/contact_utils/Delete.cpp || cmake_object_order_depends_target_ContactBook
+  DEP_FILE = CMakeFiles\ContactBook.dir\contact_utils\Delete.cpp.obj.d
   FLAGS = -g -std=gnu++14
   OBJECT_DIR = CMakeFiles\ContactBook.dir
-  OBJECT_FILE_DIR = CMakeFiles\ContactBook.dir
+  OBJECT_FILE_DIR = CMakeFiles\ContactBook.dir\contact_utils
 
-build CMakeFiles/ContactBook.dir/Add.cpp.obj: CXX_COMPILER__ContactBook_Debug C$:/Users/Barso/CLionProjects/ContactBook/Add.cpp || cmake_object_order_depends_target_ContactBook
-  DEP_FILE = CMakeFiles\ContactBook.dir\Add.cpp.obj.d
+build CMakeFiles/ContactBook.dir/contact_utils/Add.cpp.obj: CXX_COMPILER__ContactBook_Debug C$:/Users/Barso/CLionProjects/ContactBook/contact_utils/Add.cpp || cmake_object_order_depends_target_ContactBook
+  DEP_FILE = CMakeFiles\ContactBook.dir\contact_utils\Add.cpp.obj.d
   FLAGS = -g -std=gnu++14
   OBJECT_DIR = CMakeFiles\ContactBook.dir
-  OBJECT_FILE_DIR = CMakeFiles\ContactBook.dir
+  OBJECT_FILE_DIR = CMakeFiles\ContactBook.dir\contact_utils
 
 
 # =============================================================================
@@ -99,7 +99,7 @@ build CMakeFiles/ContactBook.dir/Add.cpp.obj: CXX_COMPILER__ContactBook_Debug C$
 #############################################
 # Link the executable ContactBook.exe
 
-build ContactBook.exe: CXX_EXECUTABLE_LINKER__ContactBook_Debug CMakeFiles/ContactBook.dir/main.cpp.obj CMakeFiles/ContactBook.dir/Contact.cpp.obj CMakeFiles/ContactBook.dir/Contact_Book.cpp.obj CMakeFiles/ContactBook.dir/Display.cpp.obj CMakeFiles/ContactBook.dir/Search.cpp.obj CMakeFiles/ContactBook.dir/Delete.cpp.obj CMakeFiles/ContactBook.dir/Add.cpp.obj
+build ContactBook.exe: CXX_EXECUTABLE_LINKER__ContactBook_Debug CMakeFiles/ContactBook.dir/main.cpp.obj CMakeFiles/ContactBook.dir/Contact.cpp.obj CMakeFiles/ContactBook.dir/Contact_Book.cpp.obj CMakeFiles/ContactBook.dir/contact_utils/Display.cpp.obj CMakeFiles/ContactBook.dir/contact_utils/Search.cpp.obj CMakeFiles/ContactBook.dir/contact_utils/Delete.cpp.obj CMakeFiles/ContactBook.dir/contact_utils/Add.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\ContactBook.dir
