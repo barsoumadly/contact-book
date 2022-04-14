@@ -1,0 +1,3 @@
+C:/Users/Barso/CLionProjects/ContactBook/cmake-build-debug/CMakeFiles/ContactBook.dir
+C:/Users/Barso/CLionProjects/ContactBook/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Barso/CLionProjects/ContactBook/cmake-build-debug/CMakeFiles/rebuild_cache.dir
