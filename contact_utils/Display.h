@@ -1,4 +1,4 @@
-#include "comman_libraries.h"
+#include "../comman_libraries.h"
 
 #ifndef _DISPLAY_H
 #define _DISPLAY_H
