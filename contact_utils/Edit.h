@@ -18,11 +18,18 @@ public:
     static string get_data_for_edit(const string &word);
 
     static void edit_first_name();
+
     static void edit_last_name();
+
     static void edit_phone_number();
+
     static void edit_email();
+
     static void edit_job();
+
     static void edit_address();
+
+    static int change_favorite_file(int num);
 };
 
 #endif //_EDIT_H

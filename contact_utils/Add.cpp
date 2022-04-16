@@ -39,7 +39,6 @@ Contact Add::set_data(vector<string> data) {
     contact.set_work(data[4]);
     contact.set_address(data[5]);
     contact.set_contact_number(stoi(data[6]));
-    Contact::number = stoi(data[6]);
     return contact;
 }
 
@@ -54,9 +53,9 @@ void Add::add_contact() {
 
 void Add::add_contact_to_favorite() {
     int num = Search::search_by_contact_number();
+    Contact_Book::number_of_favorites += 1;
     Contact_Book::contacts[num].set_favorites_number(Contact_Book::number_of_favorites);
     Contact_Book::favorites.push_back(Contact_Book::contacts[num]);
     Display::write_in_favorite_file(Contact_Book::contacts[num]);
-    Contact_Book::number_of_favorites += 1;
 }
 

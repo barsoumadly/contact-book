@@ -15,7 +15,9 @@ public:
 
     static void delete_contact_from_favorites();
 
-    static void change_contact_number(int num);
+    static void new_contact_numbers(int num);
+
+    static void new_favorite_numbers(int num);
 };
 
 #endif //_DELETE_H

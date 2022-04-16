@@ -39,18 +39,19 @@ void Display::write_in_favorite_file(Contact contact) {
              << contact.get_work() << ","
              << contact.get_address() << ","
              << contact.get_favorites_number();
+    out_file.close();
 }
 
 void Display::rewrite_favorite_file() {
+    ofstream out_file{"../favorite_contacts.txt"};
     for (auto &favorite: Contact_Book::favorites) {
-        ofstream out_file{"../favorite_contacts.txt", ios::app};
         out_file << favorite.get_first_name() << ","
                  << favorite.get_last_name() << ","
                  << favorite.get_phone_number() << ","
                  << favorite.get_email() << ","
                  << favorite.get_work() << ","
                  << favorite.get_address() << ","
-                 << Contact_Book::number_of_favorites << endl;
+                 << favorite.get_contact_number() << endl;
     }
 }
 

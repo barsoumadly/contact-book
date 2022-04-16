@@ -56,17 +56,21 @@ Contact_Book::Contact_Book() {
     in_file2.open("../favorite_contacts.txt", ios::in);
     while (!in_file1.eof()) {
         getline(in_file1, line1);
-        vector<string> data1 = split_line(line1);
-        Contact contact1 = Add::set_data(data1);
-        contacts.push_back(contact1);
+        if (line1 != " ") {
+            vector<string> data1 = split_line(line1);
+            Contact contact1 = Add::set_data(data1);
+            Contact::number += 1;
+            contacts.push_back(contact1);
+        }
     }
     while (!in_file2.eof()) {
         getline(in_file2, line2);
-        vector<string> data2 = split_line(line2);
-        Contact contact2 = Add::set_data(data2);
-        contact2.set_favorites_number(number_of_favorites);
-        favorites.push_back(contact2);
-        Contact_Book::number_of_favorites += 1;
+        if (line2 != " ") {
+            vector<string> data2 = split_line(line2);
+            Contact contact2 = Add::set_data(data2);
+            contact2.set_favorites_number(number_of_favorites);
+            favorites.push_back(contact2);
+        }
     }
 }
 

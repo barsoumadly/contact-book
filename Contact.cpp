@@ -51,7 +51,6 @@ string Contact::get_work() {
 }
 
 void Contact::set_contact_number(int num) {
-    number += 1;
     this->contact_number = num;
 }
 

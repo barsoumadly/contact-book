@@ -15,11 +15,13 @@ private:
     enum Check_List {
         CONTINUE = 1
     };
+
     static void display_contact_book_interface();
 
     static void perform_command(int command);
 
     static void clear_console();
+
 public:
     static vector<Contact> contacts;
     static vector<Contact> favorites;
@@ -38,9 +40,6 @@ public:
     static string choose_command();
 
     static bool check_command();
-
-    static void edit_contact();
-
 };
 
 #endif // _CONTACT_BOOK_H

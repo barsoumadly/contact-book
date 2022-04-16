@@ -1,4 +1,6 @@
 #include "common_libraries.h"
+#include "Delete.h"
+
 
 void Delete::delete_list() {
     cout << setw(39) << "1- Delete Contact from Favorites" << endl
@@ -26,10 +28,10 @@ void Delete::delete_contact_from_book() {
     ofstream out_file{"../contact_book.txt"};
     int num = Search::search_by_contact_number();
     if (num == -1) {
-        cout << "Not Exist" << endl;
+        cout << "No Contacts Found" << endl;
         delete_contact_from_book();
     } else {
-        change_contact_number(num + 1);
+        new_contact_numbers(num + 1);
         Contact_Book::contacts.erase(Contact_Book::contacts.begin() + num);
         Display::rewrite_book_file();
     }
@@ -42,16 +44,27 @@ void Delete::delete_contact_from_favorites() {
         cout << "Not Exist" << endl;
         delete_contact_from_favorites();
     } else {
+        new_favorite_numbers(num + 1);
         Contact_Book::favorites.erase(Contact_Book::favorites.begin() + num);
         Display::rewrite_favorite_file();
     }
 }
 
-void Delete::change_contact_number(int num) {
+void Delete::new_contact_numbers(int num) {
     int counter = num;
     for (int i = num; i < Contact_Book::contacts.size(); ++i) {
         Contact_Book::contacts[i].set_contact_number(counter);
         Contact::number = counter;
+        counter += 1;
+    }
+}
+
+
+void Delete::new_favorite_numbers(int num) {
+    int counter = num;
+    for (int i = num; i < Contact_Book::favorites.size(); ++i) {
+        Contact_Book::favorites[i].set_favorites_number(counter);
+        Contact_Book::number_of_favorites = counter;
         counter += 1;
     }
 }
