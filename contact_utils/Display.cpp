@@ -15,8 +15,8 @@ void Display::write_in_book_file(Contact contact) {
 }
 
 void Display::rewrite_book_file() {
+    ofstream out_file{"../contact_book.txt"};
     for (auto &contact: Contact_Book::contacts) {
-        ofstream out_file{"../contact_book.txt", ios::app};
         out_file << contact.get_first_name() << ","
                  << contact.get_last_name() << ","
                  << contact.get_phone_number() << ","

@@ -85,10 +85,6 @@ vector<string> Contact_Book::split_line(string &line) {
     return data;
 }
 
-void Contact_Book::edit_contact() {
-
-}
-
 string Contact_Book::choose_command() {
     cout << "Enter Your Choice: ";
     string choice = " ";
@@ -116,7 +112,7 @@ void Contact_Book::perform_command(int command) {
             Search::search_list();
             break;
         case EDIT_CONTACT:
-            Contact_Book::edit_contact();
+            Edit::edit_list();
             break;
         case ADD_TO_FAVORITE:
             Add::add_contact_to_favorite();

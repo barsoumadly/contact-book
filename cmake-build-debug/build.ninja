@@ -91,6 +91,12 @@ build CMakeFiles/ContactBook.dir/contact_utils/Add.cpp.obj: CXX_COMPILER__Contac
   OBJECT_DIR = CMakeFiles\ContactBook.dir
   OBJECT_FILE_DIR = CMakeFiles\ContactBook.dir\contact_utils
 
+build CMakeFiles/ContactBook.dir/contact_utils/Edit.cpp.obj: CXX_COMPILER__ContactBook_Debug C$:/Users/Barso/CLionProjects/ContactBook/contact_utils/Edit.cpp || cmake_object_order_depends_target_ContactBook
+  DEP_FILE = CMakeFiles\ContactBook.dir\contact_utils\Edit.cpp.obj.d
+  FLAGS = -g -std=gnu++14
+  OBJECT_DIR = CMakeFiles\ContactBook.dir
+  OBJECT_FILE_DIR = CMakeFiles\ContactBook.dir\contact_utils
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target ContactBook
@@ -99,7 +105,7 @@ build CMakeFiles/ContactBook.dir/contact_utils/Add.cpp.obj: CXX_COMPILER__Contac
 #############################################
 # Link the executable ContactBook.exe
 
-build ContactBook.exe: CXX_EXECUTABLE_LINKER__ContactBook_Debug CMakeFiles/ContactBook.dir/main.cpp.obj CMakeFiles/ContactBook.dir/Contact.cpp.obj CMakeFiles/ContactBook.dir/Contact_Book.cpp.obj CMakeFiles/ContactBook.dir/contact_utils/Display.cpp.obj CMakeFiles/ContactBook.dir/contact_utils/Search.cpp.obj CMakeFiles/ContactBook.dir/contact_utils/Delete.cpp.obj CMakeFiles/ContactBook.dir/contact_utils/Add.cpp.obj
+build ContactBook.exe: CXX_EXECUTABLE_LINKER__ContactBook_Debug CMakeFiles/ContactBook.dir/main.cpp.obj CMakeFiles/ContactBook.dir/Contact.cpp.obj CMakeFiles/ContactBook.dir/Contact_Book.cpp.obj CMakeFiles/ContactBook.dir/contact_utils/Display.cpp.obj CMakeFiles/ContactBook.dir/contact_utils/Search.cpp.obj CMakeFiles/ContactBook.dir/contact_utils/Delete.cpp.obj CMakeFiles/ContactBook.dir/contact_utils/Add.cpp.obj CMakeFiles/ContactBook.dir/contact_utils/Edit.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\ContactBook.dir

@@ -1,5 +1,5 @@
-#ifndef _COMMAN_LIBRARIES_H
-#define _COMMAN_LIBRARIES_H
+#ifndef _COMMON_LIBRARIES_H
+#define _COMMON_LIBRARIES_H
 
 #include <iostream>
 #include <string>
@@ -12,7 +12,8 @@
 #include "Delete.h"
 #include "Add.h"
 #include "Search.h"
+#include "Edit.h"
 
 using namespace std;
 
-#endif //_COMMAN_LIBRARIES_H
+#endif //_COMMON_LIBRARIES_H

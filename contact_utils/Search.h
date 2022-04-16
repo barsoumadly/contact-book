@@ -23,8 +23,6 @@ private:
 
     static string change_style_of_word(const string &word);
 
-    static void display_search_result(int num);
-
 public:
     enum Search_List {
         SEARCH_BY_FIRST_NAME = 1, SEARCH_BY_LAST_NAME,
@@ -51,6 +49,8 @@ public:
     static void search_by_address();
 
     static int search_by_contact_number();
+
+    static void display_search_result(int num);
 };
 
 

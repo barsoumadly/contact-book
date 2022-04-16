@@ -39,7 +39,6 @@ void Search::perform_search_option(int command) {
             break;
         default:
             cout << "Wrong Choice" << endl;
-            search_list();
             break;
     }
 }
