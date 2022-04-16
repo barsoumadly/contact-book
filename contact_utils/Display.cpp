@@ -51,7 +51,7 @@ void Display::rewrite_favorite_file() {
                  << favorite.get_email() << ","
                  << favorite.get_work() << ","
                  << favorite.get_address() << ","
-                 << favorite.get_contact_number() << endl;
+                 << favorite.get_favorites_number() << endl;
     }
 }
 
