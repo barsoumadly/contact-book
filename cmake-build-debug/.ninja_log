@@ -97,3 +97,5 @@
 20	5302	6726977139431158	CMakeFiles/ContactBook.dir/Contact_Book.cpp.obj	a1609778cb74f835
 4516	6370	6726977150165747	CMakeFiles/ContactBook.dir/contact_utils/Edit.cpp.obj	3765b8963ae5fa21
 6371	6753	6726977153873971	ContactBook.exe	c2d0bf55228ccd9
+20	2000	6727013033423628	CMakeFiles/ContactBook.dir/contact_utils/Add.cpp.obj	1a03608573ccd077
+2002	2521	6727013038609821	ContactBook.exe	c2d0bf55228ccd9

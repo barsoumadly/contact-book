@@ -62,6 +62,13 @@ void Add::sorting_contacts(vector<Contact> &contacts) {
                 int temp = contacts[i].get_contact_number();
                 contacts[i].set_contact_number(contacts[i+1].get_contact_number());
                 contacts[i+1].set_contact_number(temp);
+            }else if(contacts[i].get_first_name() == contacts[i + 1].get_first_name()){
+                if (contacts[i].get_last_name() == contacts[i + 1].get_last_name()){
+                    int temp = contacts[i].get_contact_number();
+                    contacts[i].set_contact_number(contacts[i+1].get_contact_number());
+                    contacts[i+1].set_contact_number(temp);
+                    swap(contacts[i], contacts[i + 1]);
+                }
             }
         }
     }
@@ -86,6 +93,13 @@ void Add::sorting_contacts_in_favorites(vector<Contact> &contacts) {
                 int temp = contacts[i].get_favorites_number();
                 contacts[i].set_favorites_number(contacts[i+1].get_favorites_number());
                 contacts[i+1].set_favorites_number(temp);
+            }else if(contacts[i].get_first_name() == contacts[i + 1].get_first_name()){
+                if (contacts[i].get_last_name() > contacts[i + 1].get_last_name()){
+                    int temp = contacts[i].get_favorites_number();
+                    contacts[i].set_favorites_number(contacts[i+1].get_favorites_number());
+                    contacts[i+1].set_favorites_number(temp);
+                    swap(contacts[i], contacts[i + 1]);
+                }
             }
         }
     }
