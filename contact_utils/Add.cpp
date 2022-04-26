@@ -1,4 +1,6 @@
 #include "common_libraries.h"
+#include "Add.h"
+
 
 using namespace std;
 
@@ -46,16 +48,46 @@ void Add::add_contact() {
     vector<string> data = get_data();
     Contact contact = set_data(data);
     Contact_Book::contacts.push_back(contact);
+    sorting_contacts(Contact_Book::contacts);
     Display::write_in_book_file(contact);
     cout << "Contact Saved" << endl;
+    Display::rewrite_book_file();
 }
 
+void Add::sorting_contacts(vector<Contact> &contacts) {
+    for (int times = 1; times <= contacts.size() - 1; ++times) {
+        for (int i = 0; i <= contacts.size() - times - 1; ++i) {
+            if (contacts[i].get_first_name() > contacts[i + 1].get_first_name()) {
+                swap(contacts[i], contacts[i + 1]);
+                int temp = contacts[i].get_contact_number();
+                contacts[i].set_contact_number(contacts[i+1].get_contact_number());
+                contacts[i+1].set_contact_number(temp);
+            }
+        }
+    }
+}
 
 void Add::add_contact_to_favorite() {
     int num = Search::search_by_contact_number();
     Contact_Book::number_of_favorites += 1;
     Contact_Book::contacts[num].set_favorites_number(Contact_Book::number_of_favorites);
     Contact_Book::favorites.push_back(Contact_Book::contacts[num]);
+    sorting_contacts_in_favorites(Contact_Book::favorites);
     Display::write_in_favorite_file(Contact_Book::contacts[num]);
+    cout << "Contact Added" << endl;
+    Display::rewrite_favorite_file();
+}
+
+void Add::sorting_contacts_in_favorites(vector<Contact> &contacts) {
+    for (int times = 1; times <= contacts.size() - 1; ++times) {
+        for (int i = 0; i <= contacts.size() - times - 1; ++i) {
+            if (contacts[i].get_first_name() > contacts[i + 1].get_first_name()) {
+                swap(contacts[i], contacts[i + 1]);
+                int temp = contacts[i].get_favorites_number();
+                contacts[i].set_favorites_number(contacts[i+1].get_favorites_number());
+                contacts[i+1].set_favorites_number(temp);
+            }
+        }
+    }
 }
 

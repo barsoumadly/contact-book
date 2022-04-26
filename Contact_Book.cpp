@@ -2,7 +2,7 @@
 
 using namespace std;
 
-int Contact_Book::number_of_favorites = 1;
+int Contact_Book::number_of_favorites = 0;
 
 vector<Contact> Contact_Book::contacts;
 vector<Contact> Contact_Book::favorites;

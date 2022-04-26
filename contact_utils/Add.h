@@ -12,6 +12,10 @@ public:
 
     static void add_contact();
 
+    static void sorting_contacts(vector <Contact> &contacts);
+
+    static void sorting_contacts_in_favorites(vector <Contact> &contacts);
+
     static void add_contact_to_favorite();
 
 };
