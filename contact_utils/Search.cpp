@@ -60,7 +60,7 @@ void Search::search_first_name(const string &firstName) {
     for (int i = 0; i < Contact_Book::contacts.size(); ++i) {
         string word2 = change_style_of_word(Contact_Book::contacts[i].get_first_name());
         if (word2.find(word1) < Contact_Book::contacts.size()) {
-            display_search_result(i);
+            display_search_result(i,Contact_Book::contacts);
         }
     }
 }
@@ -75,7 +75,7 @@ void Search::search_last_name(const string &lastName) {
     for (int i = 0; i < Contact_Book::contacts.size(); ++i) {
         string word2 = change_style_of_word(Contact_Book::contacts[i].get_last_name());
         if (word2.find(word1) < Contact_Book::contacts.size()) {
-            display_search_result(i);
+            display_search_result(i,Contact_Book::contacts);
         }
     }
 }
@@ -89,7 +89,7 @@ void Search::search_phone_number(const string &phoneNumber) {
     for (int i = 0; i < Contact_Book::contacts.size(); ++i) {
         if (Contact_Book::contacts[i].get_phone_number().find(phoneNumber) <
             Contact_Book::contacts.size()) {
-            display_search_result(i);
+            display_search_result(i,Contact_Book::contacts);
         }
     }
 }
@@ -104,7 +104,7 @@ void Search::search_work(const string &work) {
     for (int i = 0; i < Contact_Book::contacts.size(); ++i) {
         string word2 = change_style_of_word(Contact_Book::contacts[i].get_work());
         if (word2.find(word1) < Contact_Book::contacts.size()) {
-            display_search_result(i);
+            display_search_result(i,Contact_Book::contacts);
         }
     }
 }
@@ -119,7 +119,7 @@ void Search::search_email(const string &email) {
     for (int i = 0; i < Contact_Book::contacts.size(); ++i) {
         string word2 = change_style_of_word(Contact_Book::contacts[i].get_email());
         if (word2.find(word1) < Contact_Book::contacts.size()) {
-            display_search_result(i);
+            display_search_result(i,Contact_Book::contacts);
         }
     }
 }
@@ -134,7 +134,7 @@ void Search::search_address(const string &address) {
     for (int i = 0; i < Contact_Book::contacts.size(); ++i) {
         string word2 = change_style_of_word(Contact_Book::contacts[i].get_address());
         if (word2.find(word1) < Contact_Book::contacts.size()) {
-            display_search_result(i);
+            display_search_result(i ,Contact_Book::contacts);
         }
     }
 }
@@ -148,7 +148,32 @@ int Search::search_by_contact_number() {
 int Search::search_contact_number(int num) {
     for (int i = 0; i < Contact_Book::contacts.size(); ++i) {
         if (Contact_Book::contacts[i].get_contact_number() == num) {
-            Search::display_search_result(i);
+            Search::display_search_result(i , Contact_Book::contacts);
+            return i;
+        }
+    }
+    return -1;
+}
+
+int Search::search_by_favorite_number() {
+    string contact_number = Search::get_data_for_search("Contact Number");
+    int num = search_favorite_number(stoi(contact_number));
+    return num;
+}
+
+int Search::search_favorite_number(int num) {
+    for (int i = 0; i < Contact_Book::favorites.size(); ++i) {
+        if (Contact_Book::favorites[i].get_favorites_number() == num) {
+            Search::display_search_favorite_contact(i, Contact_Book::favorites);
+            return i;
+        }
+    }
+    return -1;
+}
+
+int Search::search_by_phone(const string &phone) {
+    for (int i = 0; i < Contact_Book::favorites.size(); ++i) {
+        if (Contact_Book::favorites[i].get_phone_number() == phone) {
             return i;
         }
     }
@@ -163,13 +188,23 @@ string Search::change_style_of_word(const string &word) {
     return temp;
 }
 
-void Search::display_search_result(int num) {
-    cout << setw(10) << "Contact " << Contact_Book::contacts[num].get_contact_number() << endl
-         << "First Name: " << Contact_Book::contacts[num].get_first_name() << endl
-         << "Last Name: " << Contact_Book::contacts[num].get_last_name() << endl
-         << "Phone Number: " << Contact_Book::contacts[num].get_phone_number() << endl
-         << "Email: " << Contact_Book::contacts[num].get_email() << endl
-         << "Job: " << Contact_Book::contacts[num].get_work() << endl
-         << "Address: " << Contact_Book::contacts[num].get_address() << endl
+void Search::display_search_result(int num, vector<Contact> contacts) {
+    cout << setw(10) << "Contact " << contacts[num].get_contact_number() << endl
+         << "First Name: " << contacts[num].get_first_name() << endl
+         << "Last Name: " << contacts[num].get_last_name() << endl
+         << "Phone Number: " << contacts[num].get_phone_number() << endl
+         << "Email: " << contacts[num].get_email() << endl
+         << "Job: " << contacts[num].get_work() << endl
+         << "Address: " << contacts[num].get_address() << endl
+         << "----------------------------------------------" << endl;
+}
+void Search::display_search_favorite_contact(int num, vector<Contact> contacts) {
+    cout << setw(10) << "Contact " << contacts[num].get_favorites_number() << endl
+         << "First Name: " << contacts[num].get_first_name() << endl
+         << "Last Name: " << contacts[num].get_last_name() << endl
+         << "Phone Number: " << contacts[num].get_phone_number() << endl
+         << "Email: " << contacts[num].get_email() << endl
+         << "Job: " << contacts[num].get_work() << endl
+         << "Address: " << contacts[num].get_address() << endl
          << "----------------------------------------------" << endl;
 }

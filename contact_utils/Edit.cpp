@@ -54,7 +54,7 @@ void Edit::edit_first_name() {
     if (check != -1) {
         Contact_Book::favorites[check].set_first_name(first_name);
     }
-    Search::display_search_result(num);
+    Search::display_search_result(num,Contact_Book::contacts);
     cout << "Contact Saved" << endl;
     Display::rewrite_book_file();
     Display::rewrite_favorite_file();
@@ -68,7 +68,7 @@ void Edit::edit_last_name() {
     if (check != -1) {
         Contact_Book::favorites[check].set_last_name(last_name);
     }
-    Search::display_search_result(num);
+    Search::display_search_result(num,Contact_Book::contacts);
     cout << "Contact Saved" << endl;
     Display::rewrite_book_file();
     Display::rewrite_favorite_file();
@@ -77,12 +77,12 @@ void Edit::edit_last_name() {
 void Edit::edit_phone_number() {
     int num = Search::search_by_contact_number();
     string phone_number = get_data_for_edit("New Phone Number");
-    Contact_Book::contacts[num].set_first_name(phone_number);
+    Contact_Book::contacts[num].set_phone_number(phone_number);
     int check = change_favorite_file(num);
     if (check != -1) {
         Contact_Book::favorites[check].set_phone_number(phone_number);
     }
-    Search::display_search_result(num);
+    Search::display_search_result(num,Contact_Book::contacts);
     cout << "Contact Saved" << endl;
     Display::rewrite_book_file();
     Display::rewrite_favorite_file();
@@ -91,12 +91,12 @@ void Edit::edit_phone_number() {
 void Edit::edit_email() {
     int num = Search::search_by_contact_number();
     string email = get_data_for_edit("New Email");
-    Contact_Book::contacts[num].set_first_name(email);
+    Contact_Book::contacts[num].set_email(email);
     int check = change_favorite_file(num);
     if (check != -1) {
         Contact_Book::favorites[check].set_email(email);
     }
-    Search::display_search_result(num);
+    Search::display_search_result(num,Contact_Book::contacts);
     cout << "Contact Saved" << endl;
     Display::rewrite_book_file();
     Display::rewrite_favorite_file();
@@ -105,12 +105,12 @@ void Edit::edit_email() {
 void Edit::edit_job() {
     int num = Search::search_by_contact_number();
     string job = get_data_for_edit("New Job");
-    Contact_Book::contacts[num].set_first_name(job);
+    Contact_Book::contacts[num].set_work(job);
     int check = change_favorite_file(num);
     if (check != -1) {
         Contact_Book::favorites[check].set_work(job);
     }
-    Search::display_search_result(num);
+    Search::display_search_result(num,Contact_Book::contacts);
     cout << "Contact Saved" << endl;
     Display::rewrite_book_file();
     Display::rewrite_favorite_file();
@@ -119,12 +119,12 @@ void Edit::edit_job() {
 void Edit::edit_address() {
     int num = Search::search_by_contact_number();
     string address = get_data_for_edit("New Address");
-    Contact_Book::contacts[num].set_first_name(address);
+    Contact_Book::contacts[num].set_address(address);
     int check = change_favorite_file(num);
     if (check != -1) {
         Contact_Book::favorites[check].set_address(address);
     }
-    Search::display_search_result(num);
+    Search::display_search_result(num,Contact_Book::contacts);
     cout << "Contact Saved" << endl;
     Display::rewrite_book_file();
     Display::rewrite_favorite_file();

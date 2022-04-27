@@ -1,4 +1,6 @@
 #include <string>
+#include <vector>
+#include "../Contact.h"
 
 #ifndef _SEARCH_H
 #define _SEARCH_H
@@ -20,6 +22,8 @@ private:
     static void search_address(const string &address);
 
     static int search_contact_number(int num);
+
+    static int search_favorite_number(int num);
 
     static string change_style_of_word(const string &word);
 
@@ -50,7 +54,13 @@ public:
 
     static int search_by_contact_number();
 
-    static void display_search_result(int num);
+    static int search_by_favorite_number();
+
+    static int search_by_phone(const string &phone);
+
+    static void display_search_result(int num, vector<Contact> contacts);
+
+    static void display_search_favorite_contact(int num, vector<Contact> contacts);
 };
 
 

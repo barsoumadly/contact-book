@@ -25,8 +25,10 @@ void Delete::perform_delete_option(int command) {
 }
 
 void Delete::delete_contact_from_book() {
+    int check;
     ofstream out_file{"../contact_book.txt"};
     int num = Search::search_by_contact_number();
+    check = Search::search_by_phone(Contact_Book::contacts[num].get_phone_number());
     if (num == -1) {
         cout << "No Contacts Found" << endl;
         delete_contact_from_book();
@@ -34,12 +36,17 @@ void Delete::delete_contact_from_book() {
         new_contact_numbers(num + 1);
         Contact_Book::contacts.erase(Contact_Book::contacts.begin() + num);
         Display::rewrite_book_file();
+        if (check != -1) {
+            new_favorite_numbers(check + 1);
+            Contact_Book::favorites.erase(Contact_Book::favorites.begin() + check);
+            Display::rewrite_favorite_file();
+        }
     }
 }
 
 void Delete::delete_contact_from_favorites() {
     ofstream out_file{"../favorite_contacts.txt"};
-    int num = Search::search_by_contact_number();
+    int num = Search::search_by_favorite_number();
     if (num == -1) {
         cout << "Not Exist" << endl;
         delete_contact_from_favorites();
