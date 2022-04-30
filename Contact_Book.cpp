@@ -11,18 +11,23 @@ void Contact_Book::start() {
     Contact_Book contactBook;
     commands_list_header();
     while (true) {
-        display_contact_book_interface();
+        bool check = display_contact_book_interface();
+        if (check) {
+            display_contact_book_interface();
+        } else {
+            break;
+        }
     }
 }
 
-void Contact_Book::display_contact_book_interface() {
+bool Contact_Book::display_contact_book_interface() {
     while (true) {
         commands_list();
         string choice = choose_command();
         bool check = check_command();
         if (check) {
             if (choice == to_string(Option_List::QUIT)) {
-                break;
+                return false;
             } else {
                 perform_command(stoi(choice));
             }

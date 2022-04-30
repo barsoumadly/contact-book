@@ -16,7 +16,7 @@ private:
         CONTINUE = 1
     };
 
-    static void display_contact_book_interface();
+    static bool display_contact_book_interface();
 
     static void perform_command(int command);
 
