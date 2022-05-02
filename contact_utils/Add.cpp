@@ -60,13 +60,13 @@ void Add::sorting_contacts(vector<Contact> &contacts) {
             if (contacts[i].get_first_name() > contacts[i + 1].get_first_name()) {
                 swap(contacts[i], contacts[i + 1]);
                 int temp = contacts[i].get_contact_number();
-                contacts[i].set_contact_number(contacts[i+1].get_contact_number());
-                contacts[i+1].set_contact_number(temp);
-            }else if(contacts[i].get_first_name() == contacts[i + 1].get_first_name()){
-                if (contacts[i].get_last_name() == contacts[i + 1].get_last_name()){
+                contacts[i].set_contact_number(contacts[i + 1].get_contact_number());
+                contacts[i + 1].set_contact_number(temp);
+            } else if (contacts[i].get_first_name() == contacts[i + 1].get_first_name()) {
+                if (contacts[i].get_last_name() > contacts[i + 1].get_last_name()) {
                     int temp = contacts[i].get_contact_number();
-                    contacts[i].set_contact_number(contacts[i+1].get_contact_number());
-                    contacts[i+1].set_contact_number(temp);
+                    contacts[i].set_contact_number(contacts[i + 1].get_contact_number());
+                    contacts[i + 1].set_contact_number(temp);
                     swap(contacts[i], contacts[i + 1]);
                 }
             }
@@ -78,11 +78,22 @@ void Add::add_contact_to_favorite() {
     int num = Search::search_by_contact_number();
     Contact_Book::number_of_favorites += 1;
     Contact_Book::contacts[num].set_favorites_number(Contact_Book::number_of_favorites);
-    Contact_Book::favorites.push_back(Contact_Book::contacts[num]);
-    sorting_contacts_in_favorites(Contact_Book::favorites);
-    Display::write_in_favorite_file(Contact_Book::contacts[num]);
-    cout << "Contact Added" << endl;
-    Display::rewrite_favorite_file();
+    bool is_exist = false;
+    for (auto &favorite: Contact_Book::favorites) {
+        if (Contact_Book::contacts[num].get_phone_number() ==
+            favorite.get_phone_number()) {
+            is_exist = true;
+        }
+    }
+    if (is_exist) {
+        cout << "Contact is already exist" << endl;
+    } else {
+        Contact_Book::favorites.push_back(Contact_Book::contacts[num]);
+        sorting_contacts_in_favorites(Contact_Book::favorites);
+        Display::write_in_favorite_file(Contact_Book::contacts[num]);
+        cout << "Contact Added" << endl;
+        Display::rewrite_favorite_file();
+    }
 }
 
 void Add::sorting_contacts_in_favorites(vector<Contact> &contacts) {
@@ -91,13 +102,13 @@ void Add::sorting_contacts_in_favorites(vector<Contact> &contacts) {
             if (contacts[i].get_first_name() > contacts[i + 1].get_first_name()) {
                 swap(contacts[i], contacts[i + 1]);
                 int temp = contacts[i].get_favorites_number();
-                contacts[i].set_favorites_number(contacts[i+1].get_favorites_number());
-                contacts[i+1].set_favorites_number(temp);
-            }else if(contacts[i].get_first_name() == contacts[i + 1].get_first_name()){
-                if (contacts[i].get_last_name() > contacts[i + 1].get_last_name()){
+                contacts[i].set_favorites_number(contacts[i + 1].get_favorites_number());
+                contacts[i + 1].set_favorites_number(temp);
+            } else if (contacts[i].get_first_name() == contacts[i + 1].get_first_name()) {
+                if (contacts[i].get_last_name() > contacts[i + 1].get_last_name()) {
                     int temp = contacts[i].get_favorites_number();
-                    contacts[i].set_favorites_number(contacts[i+1].get_favorites_number());
-                    contacts[i+1].set_favorites_number(temp);
+                    contacts[i].set_favorites_number(contacts[i + 1].get_favorites_number());
+                    contacts[i + 1].set_favorites_number(temp);
                     swap(contacts[i], contacts[i + 1]);
                 }
             }

@@ -35,6 +35,7 @@ void Delete::delete_contact_from_book() {
     } else {
         new_contact_numbers(num + 1);
         Contact_Book::contacts.erase(Contact_Book::contacts.begin() + num);
+        cout << "Contact is Deleted" << endl;
         Display::rewrite_book_file();
         if (check != -1) {
             new_favorite_numbers(check + 1);
@@ -53,6 +54,7 @@ void Delete::delete_contact_from_favorites() {
     } else {
         new_favorite_numbers(num + 1);
         Contact_Book::favorites.erase(Contact_Book::favorites.begin() + num);
+        cout << "Contact is Deleted" << endl;
         Display::rewrite_favorite_file();
     }
 }

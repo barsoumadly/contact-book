@@ -56,28 +56,36 @@ void Display::rewrite_favorite_file() {
 }
 
 void Display::display_all_contacts() {
-    for (auto &contact: Contact_Book::contacts) {
-        cout << setw(10) << "Contact " << contact.get_contact_number() << endl
-             << "First Name: " << contact.get_first_name() << endl
-             << "Last Name: " << contact.get_last_name() << endl
-             << "Phone Number: " << contact.get_phone_number() << endl
-             << "Email: " << contact.get_email() << endl
-             << "Job: " << contact.get_work() << endl
-             << "Address: " << contact.get_address() << endl
-             << "----------------------------------------------" << endl;
+    if (!Contact_Book::contacts.empty()) {
+        for (auto &contact: Contact_Book::contacts) {
+            cout << setw(10) << "Contact " << contact.get_contact_number() << endl
+                 << "First Name: " << contact.get_first_name() << endl
+                 << "Last Name: " << contact.get_last_name() << endl
+                 << "Phone Number: " << contact.get_phone_number() << endl
+                 << "Email: " << contact.get_email() << endl
+                 << "Job: " << contact.get_work() << endl
+                 << "Address: " << contact.get_address() << endl
+                 << "----------------------------------------------" << endl;
+        }
+    } else {
+        cout << "No Contacts Found" << endl;
     }
 }
 
 void Display::display_favorite_contacts() {
-    for (auto &favorite: Contact_Book::favorites) {
-        cout << setw(10) << "Contact " << favorite.get_favorites_number() << endl
-             << "First Name: " << favorite.get_first_name() << endl
-             << "Last Name: " << favorite.get_last_name() << endl
-             << "Phone Number: " << favorite.get_phone_number() << endl
-             << "Email: " << favorite.get_email() << endl
-             << "Job: " << favorite.get_work() << endl
-             << "Address: " << favorite.get_address() << endl
-             << "----------------------------------------------" << endl;
+    if (!Contact_Book::favorites.empty()) {
+        for (auto &favorite: Contact_Book::favorites) {
+            cout << setw(10) << "Contact " << favorite.get_favorites_number() << endl
+                 << "First Name: " << favorite.get_first_name() << endl
+                 << "Last Name: " << favorite.get_last_name() << endl
+                 << "Phone Number: " << favorite.get_phone_number() << endl
+                 << "Email: " << favorite.get_email() << endl
+                 << "Job: " << favorite.get_work() << endl
+                 << "Address: " << favorite.get_address() << endl
+                 << "----------------------------------------------" << endl;
+        }
+    } else {
+        cout << "No Contacts Found" << endl;
     }
 }
 
