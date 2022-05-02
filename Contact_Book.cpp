@@ -27,7 +27,7 @@ bool Contact_Book::display_contact_book_interface() {
         bool check = check_command();
         if (check) {
             if (choice == to_string(Option_List::QUIT)) {
-                return false;
+                exit(0);
             } else {
                 perform_command(stoi(choice));
             }
