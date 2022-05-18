@@ -56,12 +56,17 @@ void Search::search_by_first_name() {
 }
 
 void Search::search_first_name(const string &firstName) {
+    bool is_exist = false;
     string word1 = change_style_of_word(firstName);
     for (int i = 0; i < Contact_Book::contacts.size(); ++i) {
         string word2 = change_style_of_word(Contact_Book::contacts[i].get_first_name());
         if (word2.find(word1) < Contact_Book::contacts.size()) {
-            display_search_result(i,Contact_Book::contacts);
+            is_exist = true;
+            display_search_result(i, Contact_Book::contacts);
         }
+    }
+    if (!is_exist) {
+        cout << "No Contacts Found" << endl;
     }
 }
 
@@ -71,12 +76,17 @@ void Search::search_by_last_name() {
 }
 
 void Search::search_last_name(const string &lastName) {
+    bool is_exist = false;
     string word1 = change_style_of_word(lastName);
     for (int i = 0; i < Contact_Book::contacts.size(); ++i) {
         string word2 = change_style_of_word(Contact_Book::contacts[i].get_last_name());
         if (word2.find(word1) < Contact_Book::contacts.size()) {
-            display_search_result(i,Contact_Book::contacts);
+            is_exist = true;
+            display_search_result(i, Contact_Book::contacts);
         }
+    }
+    if (!is_exist) {
+        cout << "No Contacts Found" << endl;
     }
 }
 
@@ -86,11 +96,16 @@ void Search::search_by_phone_number() {
 }
 
 void Search::search_phone_number(const string &phoneNumber) {
+    bool is_exist = false;
     for (int i = 0; i < Contact_Book::contacts.size(); ++i) {
         if (Contact_Book::contacts[i].get_phone_number().find(phoneNumber) <
             Contact_Book::contacts.size()) {
-            display_search_result(i,Contact_Book::contacts);
+            is_exist = true;
+            display_search_result(i, Contact_Book::contacts);
         }
+    }
+    if (!is_exist) {
+        cout << "No Contacts Found" << endl;
     }
 }
 
@@ -100,12 +115,17 @@ void Search::search_by_job() {
 }
 
 void Search::search_work(const string &work) {
+    bool is_exist = false;
     string word1 = change_style_of_word(work);
     for (int i = 0; i < Contact_Book::contacts.size(); ++i) {
         string word2 = change_style_of_word(Contact_Book::contacts[i].get_work());
         if (word2.find(word1) < Contact_Book::contacts.size()) {
-            display_search_result(i,Contact_Book::contacts);
+            is_exist = true;
+            display_search_result(i, Contact_Book::contacts);
         }
+    }
+    if (!is_exist) {
+        cout << "No Contacts Found" << endl;
     }
 }
 
@@ -115,12 +135,17 @@ void Search::search_by_email() {
 }
 
 void Search::search_email(const string &email) {
+    bool is_exist = false;
     string word1 = change_style_of_word(email);
     for (int i = 0; i < Contact_Book::contacts.size(); ++i) {
         string word2 = change_style_of_word(Contact_Book::contacts[i].get_email());
         if (word2.find(word1) < Contact_Book::contacts.size()) {
-            display_search_result(i,Contact_Book::contacts);
+            is_exist = true;
+            display_search_result(i, Contact_Book::contacts);
         }
+    }
+    if (!is_exist) {
+        cout << "No Contacts Found" << endl;
     }
 }
 
@@ -130,12 +155,17 @@ void Search::search_by_address() {
 }
 
 void Search::search_address(const string &address) {
+    bool is_exist = false;
     string word1 = change_style_of_word(address);
     for (int i = 0; i < Contact_Book::contacts.size(); ++i) {
         string word2 = change_style_of_word(Contact_Book::contacts[i].get_address());
         if (word2.find(word1) < Contact_Book::contacts.size()) {
-            display_search_result(i ,Contact_Book::contacts);
+            is_exist = true;
+            display_search_result(i, Contact_Book::contacts);
         }
+    }
+    if (!is_exist) {
+        cout << "No Contacts Found" << endl;
     }
 }
 
@@ -148,7 +178,7 @@ int Search::search_by_contact_number() {
 int Search::search_contact_number(int num) {
     for (int i = 0; i < Contact_Book::contacts.size(); ++i) {
         if (Contact_Book::contacts[i].get_contact_number() == num) {
-            Search::display_search_result(i , Contact_Book::contacts);
+            Search::display_search_result(i, Contact_Book::contacts);
             return i;
         }
     }
@@ -198,6 +228,7 @@ void Search::display_search_result(int num, vector<Contact> contacts) {
          << "Address: " << contacts[num].get_address() << endl
          << "----------------------------------------------" << endl;
 }
+
 void Search::display_search_favorite_contact(int num, vector<Contact> contacts) {
     cout << setw(10) << "Contact " << contacts[num].get_favorites_number() << endl
          << "First Name: " << contacts[num].get_first_name() << endl

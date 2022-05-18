@@ -32,6 +32,7 @@ bool Contact_Book::display_contact_book_interface() {
                 perform_command(stoi(choice));
             }
         } else {
+            clear_console();
             display_contact_book_interface();
         }
     }
