@@ -60,7 +60,7 @@ void Search::search_first_name(const string &firstName) {
     string word1 = change_style_of_word(firstName);
     for (int i = 0; i < Contact_Book::contacts.size(); ++i) {
         string word2 = change_style_of_word(Contact_Book::contacts[i].get_first_name());
-        if (word2.find(word1) < Contact_Book::contacts.size()) {
+        if (word2.find(word1) < word2.size()) {
             is_exist = true;
             display_search_result(i, Contact_Book::contacts);
         }
@@ -80,7 +80,7 @@ void Search::search_last_name(const string &lastName) {
     string word1 = change_style_of_word(lastName);
     for (int i = 0; i < Contact_Book::contacts.size(); ++i) {
         string word2 = change_style_of_word(Contact_Book::contacts[i].get_last_name());
-        if (word2.find(word1) < Contact_Book::contacts.size()) {
+        if (word2.find(word1) < word2.size()) {
             is_exist = true;
             display_search_result(i, Contact_Book::contacts);
         }
@@ -99,7 +99,7 @@ void Search::search_phone_number(const string &phoneNumber) {
     bool is_exist = false;
     for (int i = 0; i < Contact_Book::contacts.size(); ++i) {
         if (Contact_Book::contacts[i].get_phone_number().find(phoneNumber) <
-            Contact_Book::contacts.size()) {
+            Contact_Book::contacts[i].get_phone_number().size()) {
             is_exist = true;
             display_search_result(i, Contact_Book::contacts);
         }
@@ -119,7 +119,7 @@ void Search::search_work(const string &work) {
     string word1 = change_style_of_word(work);
     for (int i = 0; i < Contact_Book::contacts.size(); ++i) {
         string word2 = change_style_of_word(Contact_Book::contacts[i].get_work());
-        if (word2.find(word1) < Contact_Book::contacts.size()) {
+        if (word2.find(word1) < word2.size()) {
             is_exist = true;
             display_search_result(i, Contact_Book::contacts);
         }
@@ -139,7 +139,7 @@ void Search::search_email(const string &email) {
     string word1 = change_style_of_word(email);
     for (int i = 0; i < Contact_Book::contacts.size(); ++i) {
         string word2 = change_style_of_word(Contact_Book::contacts[i].get_email());
-        if (word2.find(word1) < Contact_Book::contacts.size()) {
+        if (word2.find(word1) < word2.size()) {
             is_exist = true;
             display_search_result(i, Contact_Book::contacts);
         }
@@ -159,7 +159,7 @@ void Search::search_address(const string &address) {
     string word1 = change_style_of_word(address);
     for (int i = 0; i < Contact_Book::contacts.size(); ++i) {
         string word2 = change_style_of_word(Contact_Book::contacts[i].get_address());
-        if (word2.find(word1) < Contact_Book::contacts.size()) {
+        if (word2.find(word1) < word2.size()) {
             is_exist = true;
             display_search_result(i, Contact_Book::contacts);
         }
